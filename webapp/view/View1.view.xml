@@ -1,0 +1,54 @@
+<mvc:View controllerName="com.rizing.ad.zprojectsample.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <fb:FilterBar id="filterbar" reset="onReset" search="onSearch" showRestoreButton="true" width="100%">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="CustomerID" label="{i18n>CustomerID}" labelTooltip="Tooltip GroupItem Example" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input type="Text" />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="CompanyName" label="{i18n>CompanyName}" labelTooltip="Tooltip GroupItem Example" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input type="Text" />
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+            <Table id="tblCustomers" inset="false" items="{
+			path: '/Customers',
+			sorter: {
+				path: 'CustomerID'
+			}
+		}"
+        growing="true"
+        growingThreshold="15 ">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>CustomerID}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>CompanyName}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ContactName}" />
+                    </Column>
+                     <Column>
+                        <Text text="" />
+                    </Column>
+                    
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{CustomerID}" />
+                            <Text text="{CompanyName}" />
+                            <Text text="{ContactName}" />
+                         <Button text="default" press="onPress"></Button>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
